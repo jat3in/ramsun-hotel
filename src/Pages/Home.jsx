@@ -1,5 +1,6 @@
+import Navbar from "../components/layout/Navbar";
 const Home = () => {
-  return <main>{/* component will be added here */}  h</main>;
+  return <main><Navbar></Navbar></main>;
 };
 
 export default Home;
