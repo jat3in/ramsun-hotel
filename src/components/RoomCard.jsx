@@ -3,10 +3,10 @@ import React from 'react';
 
 
 const RoomCard = ({ room, index }) => {
-  const isFlipped = index % 2 !== 0; // Alternate flipping of content
+
   return (
-    <div className={`flex flex-col gap-4 p-4 border-b ${isFlipped ? 'items-end text-right' : 'items-start text-left'} bg-neutral-100 rounded-lg`}>
-      <div className="w-full">
+    <div className={`flex flex-wrap md:flex-nowrap gap-4 p-4 m-8 border-b  bg-neutral-100 rounded-lg`}>
+      <div className="w-96">
         <img src={room.image} alt={room.title} className="w-full rounded-lg object-cover mb-4" />
       </div>
       <div className="w-full">
@@ -22,8 +22,8 @@ const RoomCard = ({ room, index }) => {
             <p className="ml-2">{room.guestInfo}</p>
           </div>
         </div>
-        <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">View More</button>
-      </div>
+        <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Book Now</button>
+      </div>   
     </div>
   );
 };
