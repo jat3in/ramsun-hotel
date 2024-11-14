@@ -36,7 +36,7 @@ const ReviewCard = ({ text, author, date }) => (
       <img
         src="https://img.icons8.com/ios-filled/50/000000/tripadvisor.png"
         alt="Tripadvisor icon"
-        className="h-6 w-6 lg:mr-[-110px] md:mr-[-45px] mr-[-200px]"
+        className="h-6 w-6 lg:mr-[-150px] md:mr-[-45px] mr-[-140px]"
       />
       <div>
         
