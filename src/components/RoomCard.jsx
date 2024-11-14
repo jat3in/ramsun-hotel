@@ -5,7 +5,7 @@ import React from 'react';
 const RoomCard = ({ room, index }) => {
 
   return (
-    <div className={`flex flex-wrap md:flex-nowrap gap-4 p-4 m-4 border-b  bg-neutral-100 rounded-lg`}>
+    <div className={`flex flex-wrap md:flex-nowrap gap-4 p-4 m-8 border-b  bg-neutral-100 rounded-lg`}>
       <div className="w-96">
         <img src={room.image} alt={room.title} className="w-full rounded-lg object-cover mb-4" />
       </div>
