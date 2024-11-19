@@ -6,8 +6,8 @@ import RoomList from "../components/RoomList";
 import ImageCarousel from "../components/ImageCarousel";
 const Home = () => {
   return <main className="h-full w-full">
-    {/* <ReviewList/> */}
     <ImageCarousel classNameProps="md:h-[750px] h-[480px]" ></ImageCarousel>
+    <ReviewList/>
     <RoomList/>
     <DealsComponent/>
     <Footer/>
