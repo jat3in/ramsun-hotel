@@ -1,14 +1,13 @@
 
 import DealsComponent from "../components/Deals";
 import Footer from "../components/layout/Footer";
-import Navbar from "../components/layout/Navbar";
 import ReviewList from "../components/ReviewList";
 import RoomList from "../components/RoomList";
-
+import ImageCarousel from "../components/ImageCarousel";
 const Home = () => {
-  return <main>
-    <Navbar/>
-    <ReviewList/>
+  return <main className="h-full w-full">
+    {/* <ReviewList/> */}
+    <ImageCarousel classNameProps="md:h-[750px] h-[480px]" ></ImageCarousel>
     <RoomList/>
     <DealsComponent/>
     <Footer/>
