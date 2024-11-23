@@ -46,7 +46,7 @@ const ReviewCard = ({ text, author, date }) => (
 
 const ReviewList = () => (
 <>
-  <div className='text-center text-5xl font-medium text-gray-800 font-serif '>Reviews</div>
+  <div className='text-center text-5xl font-medium text-gray-800 font-serif mt-8'>Reviews</div>
   <div className="container mx-auto px-6 py-8 flex flex-col md:flex-row md:flex-wrap justify-center">
     {reviews.map((review) => (
       <ReviewCard key={review.id} {...review} />
