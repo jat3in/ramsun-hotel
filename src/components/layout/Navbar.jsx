@@ -1,11 +1,11 @@
 import { useState } from "react";
+import logo from "../../assets/logo.png";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { title: "Product", href: "/" },
-    { title: "Features", href: "/" },
-    { title: "Pricing", href: "/" },
+    { title: "Home", href: "/" },
+    { title: "Rooms", href: "/" },
     { title: "About us", href: "/" },
   ];
 
@@ -16,22 +16,9 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center space-x-3">
-              <svg
-                className="w-8 h-8 text-purple-600"
-                viewBox="0 0 24 24"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeMiterlimit="10"
-                stroke="currentColor"
-                fill="none"
-              >
-                <rect x="3" y="1" width="7" height="12" />
-                <rect x="3" y="17" width="7" height="6" />
-                <rect x="14" y="1" width="7" height="6" />
-                <rect x="14" y="11" width="7" height="12" />
-              </svg>
-              <span className="text-2xl font-bold text-gray-800">Company</span>
+            <div className="h-8 w-8 rounded-full border-2 border-primary p-1">             <img src={logo} alt="Logo"  />
+            </div>
+              <span className="text-2xl font-bold text-primary">Ramson Stay Inn</span>
             </a>
           </div>
 
