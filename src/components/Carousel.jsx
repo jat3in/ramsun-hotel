@@ -1,5 +1,5 @@
-import {useState ,useEffect} from "react"
-import {MoveLeft,MoveRight} from "lucide-react"
+import { useState, useEffect } from "react";
+import { MoveLeft, MoveRight } from "lucide-react";
 const Carousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -24,7 +24,7 @@ const Carousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
 
   return (
     <div className="relative w-full  mx-auto ">
-      <div className="overflow-hidden relative md:h-[640px] h-96">
+      <div className="overflow-hidden relative md:h-[670px] h-96">
         {images.map((image, index) => (
           <div
             key={index}
@@ -41,23 +41,23 @@ const Carousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
         ))}
       </div>
       <button
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary text-white hover:bg-gray-800  p-2 transition-colors duration-300 ease-in-out"
         onClick={prevSlide}
       >
         <MoveLeft></MoveLeft>
       </button>
       <button
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2"
+        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary text-white hover:bg-gray-800  p-2 transition-colors duration-300 ease-in-out"
         onClick={nextSlide}
       >
         <MoveRight></MoveRight>
-        </button>
+      </button>
       <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-4">
         {images.map((_, index) => (
           <div
             key={index}
-            className={`w-2 h-2 rounded-full mx-1 ${
-              index === currentIndex ? "bg-gray-800" : "bg-gray-400"
+            className={`w-4 h-2 rounded-full mx-1 ${
+              index === currentIndex ? "bg-primary" : "bg-gray-400"
             }`}
             onClick={() => setCurrentIndex(index)}
           />
@@ -67,4 +67,4 @@ const Carousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
   );
 };
 
-export default Carousel
+export default Carousel;
