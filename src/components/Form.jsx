@@ -81,8 +81,8 @@ const SignUpForm = ({ selectedPackage }) => {
       </button>
 
       {/* Disclaimer */}
-      <p className="text-xs text-gray-500 mt-4 text-center">
-        By clicking on "Submit", you agree to our{" "}
+      {/* <p className="text-xs text-gray-500 mt-4 text-center">
+        By clicking on "Apply For Offer", you agree to our{" "}
         <a href="#" className="text-green-600 underline">
           Privacy Policy
         </a>{" "}
@@ -90,7 +90,7 @@ const SignUpForm = ({ selectedPackage }) => {
         <a href="#" className="text-green-600 underline">
           Terms of Use
         </a>.
-      </p>
+      </p> */}
     </form>
   );
 };

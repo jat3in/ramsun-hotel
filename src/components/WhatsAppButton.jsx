@@ -3,7 +3,7 @@ import React from 'react';
 const WhatsAppButton = () => {
   return (
     <a
-      href="https://api.whatsapp.com/send?phone=+919630107798&text=Hi,%20I%20am%20looking%20for%20a%20Hotel,%20can%20you%20help%20me?"
+      href="https://api.whatsapp.com/send?phone=+916909422848&text=Hi,%20I%20am%20looking%20for%20a%20Hotel,%20can%20you%20help%20me?"
       style={{
         position: 'fixed',
         bottom: '20px',
