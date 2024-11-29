@@ -6,7 +6,7 @@ const Navbar = () => {
   const menuItems = [
     { title: "Home", href: "/" },
     { title: "Rooms", href: "/" },
-    { title: "About us", href: "/" },
+    { title: "About us", href: "/AboutUs" },
   ];
 
   return (
