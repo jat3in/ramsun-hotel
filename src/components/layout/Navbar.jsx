@@ -5,8 +5,7 @@ const Navbar = () => {
 
   const menuItems = [
     { title: "Home", href: "/" },
-    { title: "Rooms", href: "/" },
-    { title: "About us", href: "/AboutUs" },
+    { title: "About us", href: "/aboutUs" },
   ];
 
   return (
@@ -16,9 +15,12 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center space-x-3">
-            <div className="h-8 w-8 rounded-full border-2 border-primary p-1">             <img src={logo} alt="Logo"  />
-            </div>
-              <span className="text-2xl font-bold text-primary">Ramson Stay Inn</span>
+              <div className="h-8 w-8 rounded-full border-2 border-primary p-1">
+                <img src={logo} alt="Logo" />
+              </div>
+              <span className="text-2xl font-bold text-primary">
+                Ramson Stay Inn
+              </span>
             </a>
           </div>
 
@@ -28,7 +30,7 @@ const Navbar = () => {
               <a
                 key={index}
                 href={item.href}
-                className="text-gray-600 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+                className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
               >
                 {item.title}
               </a>

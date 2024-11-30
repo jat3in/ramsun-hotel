@@ -7,7 +7,7 @@ const reviews = [
   },
   {
     id: 2,
-    text: "I would like to tell about the le-LOI This is nice property well maintained room superb service and staff prime location in mid City of Udaipur easy going over all nicely experience with this I recommend and must visit.",
+    text: "I would like to tell about the le-LOI This is nice property well maintained room superb service and staff prime location in mid City of Shillong, Meghalaya easy going over all nicely experience with this I recommend and must visit.",
     author: "MahendraV74",
     date: "Nov 25, 2020",
   },
