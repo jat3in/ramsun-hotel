@@ -10,7 +10,7 @@ const Navbar = () => {
   const menuItems = [
     { title: "Home", href: "/" },
     { title: "About us", href: "/aboutUs" },
-    { title: "Gallery", href: "/gallery" },
+    // { title: "Gallery", href: "/gallery" },
   ];
 
   useEffect(() => {
@@ -23,19 +23,19 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+      (!isScrolled && isMenuOpen) || isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className={`h-10 w-10 rounded-full border-2 ${
-              isScrolled ? 'border-primary' : 'border-white'
+              (!isScrolled && isMenuOpen) || isScrolled  ? 'border-primary' : 'border-white'
             } p-1 transition-all duration-300 group-hover:border-primary`}>
               <img src={logo} alt="Logo" className="w-full h-full object-contain" />
             </div>
             <span className={`text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-primary' : 'text-white'
+              (!isScrolled && isMenuOpen) || isScrolled  ? 'text-primary' : 'text-white'
             } group-hover:text-primary`}>
               Ramson Stay Inn
             </span>
@@ -85,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div className={`lg:hidden transition-all duration-300 ${isMenuOpen ? 'max-h-64' : 'max-h-0'} overflow-hidden`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-b-lg shadow-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-lg shadow-lg">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
