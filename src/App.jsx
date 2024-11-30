@@ -7,6 +7,8 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsConditions from "./Pages/TermsConditions";
 const Home = lazy(() => import("./Pages/Home"));
 const AboutUs = lazy(() => import("./Pages/AboutUs"));
+
+import logo from "./assets/logo.png";
 const Modal = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
@@ -58,7 +60,7 @@ function App() {
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <WhatsAppButton />
       <Router>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
@@ -74,3 +76,49 @@ function App() {
 }
 
 export default App;
+
+const LoadingScreen = () => {
+  const [messageIndex, setMessageIndex] = useState(0);
+
+  const messages = [
+    "Welcome to luxury and comfort in the heart of Shillong",
+    "Experience the finest hospitality in Meghalaya",
+    "Your perfect stay awaits at Ramson Stay Inn",
+    "Creating memorable experiences since 2020",
+    "Rated 4.3/5 by our valued guests",
+  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMessageIndex((prev) => (prev + 1) % messages.length);
+    }, 2000); // Switch message every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <div className="fixed inset-0 bg-white flex flex-col items-center justify-center min-h-screen">
+      <div className="animate-bounce mb-8">
+        <div className="h-20 w-20 rounded-full border-2 border-primary p-2">
+          <img
+            src={logo}
+            alt="Ramson Stay Inn"
+            className="w-full h-full object-contain"
+          />
+        </div>
+      </div>
+
+      <h1 className="text-3xl font-bold text-primary mb-4">Ramson Stay Inn</h1>
+
+      <div className="flex items-center gap-2 mb-8">
+        <div className="w-3 h-3 rounded-full bg-primary animate-pulse delay-100"></div>
+        <div className="w-3 h-3 rounded-full bg-primary animate-pulse delay-200"></div>
+        <div className="w-3 h-3 rounded-full bg-primary animate-pulse delay-300"></div>
+      </div>
+
+      <div className="text-center max-w-sm px-4">
+        <p className="text-gray-600 italic animate-fade-in key={messages[messageIndex]}">
+          "{messages[messageIndex]}"
+        </p>
+      </div>
+    </div>
+  );
+};

@@ -41,7 +41,7 @@ const SignUpForm = ({selectedPackage}) => {
     <form onSubmit={handleSubmit} className="space-y-4 p-4 bg-white rounded-lg">
       {/* Heading */}
       <h2 className="text-center text-lg font-semibold text-green-600 mb-4">
-        Request Callback for: {selectedPackage?.packageName}
+        Request Callback for Room booking
       </h2>
 
       {/* Input Fields */}

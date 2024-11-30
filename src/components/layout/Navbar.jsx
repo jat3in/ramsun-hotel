@@ -43,19 +43,22 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
-                  isScrolled 
-                    ? 'text-gray-600 hover:text-primary' 
-                    : 'text-white hover:text-primary'
-                } ${location.pathname === item.href ? 'text-primary' : ''}`}
-              >
-                {item.title}
-              </Link>
-            ))}
+          {menuItems.map((item) => (
+  <Link
+    key={item.href}
+    to={item.href}
+    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+      location.pathname === item.href 
+        ? 'text-primary' 
+        : (!isScrolled && !isMenuOpen) 
+          ? 'text-white hover:text-primary'
+          : 'text-gray-600 hover:text-primary'
+    }`}
+  >
+    {item.title}
+  </Link>
+))}
+
             <Link
               to="/book"
               className="bg-primary text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
