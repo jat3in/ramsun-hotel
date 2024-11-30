@@ -62,7 +62,7 @@ const Carousel = ({ images, autoSlide = true, autoSlideInterval }) => {
       </button>
 
       {/* Slide Counter */}
-      <div className="absolute top-4 right-4 bg-black/20 backdrop-blur-md text-white px-4 py-2 rounded-full z-20">
+      <div className="absolute bottom-4 left-4 bg-black/20 backdrop-blur-md text-white px-4 py-2 rounded-full z-20">
         <span className="font-medium">{currentIndex + 1}</span>
         <span className="mx-1">/</span>
         <span className="text-white/70">{images.length}</span>

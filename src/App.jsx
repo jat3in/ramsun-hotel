@@ -2,10 +2,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useEffect, useState, Suspense, lazy } from "react";
 import WhatsAppButton from "./components/WhatsAppButton";
 import SignUpForm from "./components/SignUpForm";
+import Layout from "./components/Layout";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import TermsConditions from "./Pages/TermsConditions";
 const Home = lazy(() => import("./Pages/Home"));
 const AboutUs = lazy(() => import("./Pages/AboutUs"));
-
 const Modal = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
@@ -57,15 +58,16 @@ function App() {
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <WhatsAppButton />
       <Router>
-        <div className="w-full h-full">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/aboutUs" element={<AboutUs />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            </Routes>
-          </Suspense>
-        </div>
+              <Route path="/terms-conditions" element={<TermsConditions />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </Router>
     </>
   );

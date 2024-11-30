@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
 import DealsComponent from "../components/Deals";
-import Footer from "../components/layout/Footer";
 import ReviewList from "../components/ReviewList";
 import RoomList from "../components/RoomList";
-import Navbar from "../components/layout/Navbar";
 import Carousel from "../components/Carousel";
 
 const Home = () => {
@@ -27,12 +24,10 @@ const Home = () => {
 
   return (
     <main className="h-full w-full">
-      <Navbar></Navbar>
       <Carousel images={images} autoSlide={true} autoSlideInterval={10000} />
       <ReviewList />
       <RoomList />
       <DealsComponent />
-      <Footer />
     </main>
   );
 };
