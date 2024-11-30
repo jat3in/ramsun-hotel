@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { MoveLeft, MoveRight } from "lucide-react";
-const Carousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const Carousel = ({ images, autoSlide = true, autoSlideInterval }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -17,18 +18,22 @@ const Carousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   return (
-    <div className="relative w-full  mx-auto ">
+    <div className="relative w-full mx-auto group">
+      {/* Main Carousel Container */}
       <div className="overflow-hidden relative md:h-[750px] h-96">
+        {/* Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent z-10"></div>
+
+        {/* Slides */}
         {images.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-transform transform ${
+            className={`absolute inset-0 transition-transform duration-700 ease-out ${
               index === currentIndex ? "translate-x-0" : "translate-x-full"
             }`}
           >
@@ -40,28 +45,45 @@ const Carousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
           </div>
         ))}
       </div>
+
+      {/* Navigation Buttons */}
       <button
-        className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary text-white hover:bg-gray-800  p-2 transition-colors duration-300 ease-in-out"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/10 backdrop-blur-lg text-white p-3 rounded-full md:opacity-0 opacity-100 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-black z-20"
         onClick={prevSlide}
       >
-        <MoveLeft></MoveLeft>
+        <ChevronLeft className="w-6 h-6" />
       </button>
+
       <button
-        className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary text-white hover:bg-gray-800  p-2 transition-colors duration-300 ease-in-out"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/10 backdrop-blur-lg text-white p-3 rounded-full md:opacity-0 opacity-100 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:text-black z-20"
         onClick={nextSlide}
       >
-        <MoveRight></MoveRight>
+        <ChevronRight className="w-6 h-6" />
       </button>
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-4">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`w-4 h-2 rounded-full mx-1 ${
-              index === currentIndex ? "bg-primary" : "bg-gray-400"
-            }`}
-            onClick={() => setCurrentIndex(index)}
-          />
-        ))}
+
+      {/* Slide Counter */}
+      <div className="absolute top-4 right-4 bg-black/20 backdrop-blur-md text-white px-4 py-2 rounded-full z-20">
+        <span className="font-medium">{currentIndex + 1}</span>
+        <span className="mx-1">/</span>
+        <span className="text-white/70">{images.length}</span>
+      </div>
+
+      {/* Progress Indicators */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-3 z-20">
+        {[0, 1, 2].map((buttonIndex) => {
+          const offset = (currentIndex + buttonIndex - 1 + images.length) % images.length;
+          return (
+            <button
+              key={buttonIndex}
+              onClick={() => setCurrentIndex(offset)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                buttonIndex === 1
+                  ? "w-8 bg-primary"
+                  : "w-4 bg-white/50 hover:bg-white/80"
+              }`}
+            />
+          );
+        })}
       </div>
     </div>
   );

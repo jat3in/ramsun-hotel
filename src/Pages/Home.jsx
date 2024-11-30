@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <main className="h-full w-full">
       <Navbar></Navbar>
-      <Carousel images={images} autoSlide={true} autoSlideInterval={3000} />
+      <Carousel images={images} autoSlide={true} autoSlideInterval={10000} />
       <ReviewList />
       <RoomList />
       <DealsComponent />

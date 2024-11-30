@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const SignUpForm = ({ selectedPackage }) => {
+const SignUpForm = ({selectedPackage}) => {
 
   const title = selectedPackage?.packageName
   const [formData, setFormData] = useState({
@@ -96,3 +96,4 @@ const SignUpForm = ({ selectedPackage }) => {
 };
 
 export default SignUpForm;
+

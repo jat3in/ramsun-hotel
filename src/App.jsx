@@ -1,10 +1,10 @@
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import {useEffect,useState, Suspense, lazy } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import WhatsAppButton from "./components/WhatsAppButton";
-import SignUpForm from "./components/Form";
-const Home  = lazy(()=>import("./Pages/Home"));
-const AboutUs  = lazy(()=>import("./Pages/AboutUs"));
+import SignUpForm from "./components/SignUpForm";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+const Home = lazy(() => import("./Pages/Home"));
+const AboutUs = lazy(() => import("./Pages/AboutUs"));
 
 const Modal = ({ isOpen, onClose }) => {
   useEffect(() => {
@@ -44,7 +44,6 @@ const Modal = ({ isOpen, onClose }) => {
           <SignUpForm></SignUpForm>
         </section>
         {/* Disclaimer */}
-
       </div>
     </div>
   );
@@ -53,20 +52,23 @@ const Modal = ({ isOpen, onClose }) => {
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-  return <>
-    <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    <WhatsAppButton/>
-    <Router>
+  return (
+    <>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <WhatsAppButton />
+      <Router>
         <div className="w-full h-full">
-        <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/aboutUs" element={<AboutUs />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Routes>
           </Suspense>
         </div>
-    </Router>
-  </>;
+      </Router>
+    </>
+  );
 }
 
 export default App;
