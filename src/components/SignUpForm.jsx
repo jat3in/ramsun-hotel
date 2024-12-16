@@ -27,7 +27,7 @@ const SignUpForm = ({selectedPackage}) => {
     console.log(formData);
     if (!email && !name && !phone) alert("Please fill all fields");
     axios
-      .post(import.meta.env.VITE_FORM_URL, formData)
+      .post(`https://hotel-backend-hj8a.onrender.com/send-email`, formData)
       .then((res) => {
         if (res.data.message === "Form submitted successfully") {
           alert("Contact Form submitted");

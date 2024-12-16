@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const menuItems = [
     { title: "Home", href: "/" },
-    { title: "About us", href: "/aboutUs" },
+    { title: "About us", href: "/aboutus" },
     // { title: "Gallery", href: "/gallery" },
   ];
 
@@ -60,7 +60,7 @@ const Navbar = () => {
 ))}
 
             <Link
-              to="/book"
+              to="/"
               className="bg-primary text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
             >
               Book Now
@@ -104,7 +104,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              to="/book"
+              to="/"
               onClick={() => setIsMenuOpen(false)}
               className="block w-full text-center px-3 py-2 rounded-md text-base font-medium bg-primary text-white hover:bg-primary/90 transition-all duration-300 shadow-md"
             >
